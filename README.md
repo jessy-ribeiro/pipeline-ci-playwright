@@ -1,49 +1,72 @@
-# Pipeline CI com Playwright
+🚀 Pipeline CI com Playwright
+🎯 Objetivo
 
-## Objetivo
+Automatizar testes End-to-End (E2E) utilizando Playwright integrado ao GitHub Actions, garantindo execução contínua em diferentes cenários (push, manual e agendado), com geração e armazenamento de relatórios de testes.
 
-Automatizar testes E2E utilizando GitHub Actions.
-
-## Tecnologias
-
-* Node.js
-* Playwright
-* GitHub Actions
-* Git
-
-## Estrutura
-
+🧰 Tecnologias utilizadas
+Node.js
+Playwright
+GitHub Actions
+Git
+📁 Estrutura do projeto
 .github/workflows/
 └── e2e-tests.yml
 
 tests/
+playwright.config.js
+⚙️ Configuração do CI (GitHub Actions)
 
-## Instalação
+A pipeline está configurada para executar em três cenários:
 
-```bash
+🔁 Push na branch master
+▶️ Execução manual (workflow_dispatch)
+⏰ Execução agendada (cron diário)
+▶️ Execução local
+
+Para rodar os testes localmente:
+
 npm install
-```
-
-## Execução local
-
-```bash
 npx playwright test
-```
+🔄 Execução da Pipeline
 
-## Execução da Pipeline
+A pipeline é executada automaticamente quando:
 
-A pipeline é executada automaticamente a cada push na branch master.
+Um commit é enviado para a branch master
+É acionada manualmente no GitHub Actions
+É executada automaticamente em horário agendado (cron)
+📊 Relatórios de testes
 
-Também pode ser iniciada manualmente pelo GitHub Actions.
+Após cada execução da pipeline:
 
-## Relatórios
+O relatório HTML do Playwright é gerado
+O relatório é armazenado como Artifact no GitHub Actions
+📍 Onde acessar:
 
-Após cada execução, o relatório Playwright fica disponível em:
+GitHub → Actions → execução do workflow → Artifacts → playwright-report
 
-Actions → Artifacts → playwright-report
+🧪 Validação da pipeline
 
-## Resultado esperado
+A pipeline contempla:
 
-* Pipeline executando com sucesso
-* Testes automatizados aprovados
-* Relatórios armazenados
+✔ Execução automática por push
+✔ Execução manual via GitHub Actions
+✔ Execução agendada (schedule)
+✔ Execução de testes E2E com Playwright
+✔ Geração de relatório HTML
+✔ Armazenamento do relatório como artifact
+✔ Pipeline executando com sucesso
+📌 Resultado esperado
+
+Ao final da execução:
+
+Pipeline executa sem erros
+Testes automatizados passam com sucesso
+Relatório de execução é gerado
+Artefato fica disponível para download no GitHub Actions
+🧠 Conceitos aplicados
+Integração Contínua (CI)
+Automação de testes E2E
+Pipelines no GitHub Actions
+Execução em múltiplos gatilhos (push, manual, schedule)
+Geração e persistência de artefatos
+Testes automatizados com Playwright
